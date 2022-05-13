@@ -2,7 +2,6 @@ import React from 'react';
 import { QueryClientProvider } from 'react-query';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import queryClient from './configs/react-query.config';
 import { GlobalStyles } from './configs/styles.config';
 import PostsView from './views/posts-view';
@@ -13,7 +12,6 @@ const globalStyles = <GlobalStyles />;
 function App() {
     return (
         <QueryClientProvider client={queryClient}>
-            <ReactQueryDevtools />
             {globalStyles}
             <Container maxWidth="md">
                 <Routes>
