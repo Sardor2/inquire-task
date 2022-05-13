@@ -1,29 +1,28 @@
 import React from 'react';
-import { css } from 'styled-components';
-import styled from 'styled-components/macro';
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box';
 import { QueryClientProvider } from 'react-query';
+import { Route, Routes } from 'react-router-dom';
+import { Container } from '@mui/material';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import queryClient from './configs/react-query.config';
 import { GlobalStyles } from './configs/styles.config';
+import PostsView from './views/posts-view';
+import PostView from './views/post-view';
 
 const globalStyles = <GlobalStyles />;
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      {globalStyles}
-      <Box sx={{ textAlign: 'center' }}>
-        <Typography
-          css={css`
-            color: ${(props) => props.theme.palette.primary.main};
-          `}
-        >
-          This is react starter
-        </Typography>
-      </Box>
-    </QueryClientProvider>
-  );
+    return (
+        <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools />
+            {globalStyles}
+            <Container maxWidth="md">
+                <Routes>
+                    <Route element={<PostsView />} path="/" />
+                    <Route element={<PostView />} path="/:id" />
+                </Routes>
+            </Container>
+        </QueryClientProvider>
+    );
 }
 
 export default App;

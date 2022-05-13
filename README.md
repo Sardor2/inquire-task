@@ -1,4 +1,4 @@
-# Ultimate React Starter (React-query/Airbnb eslint/Material-ui/Husky)
+
 
 ## Library Stack
 - React Query
@@ -13,6 +13,8 @@
 
 ### `yarn prepare`
 This is the #1 thing to do as it will prepare git hooks after you run yarn install
+
+### Run the app with "yarn start"
 
 
 ## Conventions
